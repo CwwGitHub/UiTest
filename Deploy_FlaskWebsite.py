@@ -21,8 +21,9 @@ class FlaskWebsiteOnWinService(win32serviceutil.ServiceFramework):
 
     #windows服务启动时执行的操作
     def SvcDoRun(self):
-        work_dir = "C:\\Code\\PycharmCode\\UiTest\\"
-        print("FlaskWebsite.py的目录：",work_dir)
+        work_dir=os.path.dirname(__file__)
+        print("FlaskWebsite.py的目录-------------：",os.path.dirname(__file__))
+        #print("FlaskWebsite.py的目录：",work_dir)
         self.child_process = subprocess.Popen("python FlaskWebsite.py",cwd=work_dir)
         win32event.WaitForSingleObject(self.hWaitStop,win32event.INFINITE)
 
