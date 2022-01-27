@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 
 class TestFlaskWebsite:
     #用正确的用户名和密码，测试登录是否成功
-    @pytest.mark.parametrize('homeur,username,password',[("http://localhost:5001","username1","password1")])
+    @pytest.mark.parametrize('homeurl,username,password',[("http://localhost:5001","username1","password1")])
     def test_site_login_success(self,homeurl,username,password):
         driver = webdriver.Chrome()
         driver.get(homeurl)
